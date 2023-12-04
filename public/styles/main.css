@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+body {
+    background-color: rgb(35, 35, 35);
+    color: white;
+    font-family: 'Poppins';
+    list-style: none;
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px;
+}
+.two{
+    color: #6419E6;
+}
+
+.one {
+    color: rgb(197, 8, 197);
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    width: 95px;
+    font-size: medium;
+    border: none;
+    background-color: rgb(35,35,35);
+}
+a {
+    color: rgb(120, 120, 120);
+    text-decoration: none;
+
+}
+button:hover {
+    background-color: rgb(59, 58, 58);
+}
+.messages {
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    background-color: rgb(52, 52, 52);
+    margin: 10px auto;
+    width: 50%;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.addMessage {
+    background-color:rgb(197, 8, 197)  ;
+    border: none;
+    color: white;
+    font-size: large;
+    width: 150px;
+    padding: 10px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+
+.addMessage:hover {
+    background-color: white;
+}
+
+.addMessage a:hover {
+    color: rgb(197, 8, 197);
+}
+
+.addMessage a {
+    color: white;
+}
+
+.logoutBtn{
+    color: white;
+}
+
+.buttons {
+    display: flex;
+}
+
+.joinClubBtn {
+    background-color: #6419E6;
+}
+
+.joinClubBtn a {
+    color: white;
+}
+
+.joinClubBtn:hover{
+    background-color:white ;
+}
+
+.joinClubBtn a:hover{
+    color: #6419E6;
+}
+
+button {
+    margin: 10px;
+}

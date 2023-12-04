@@ -5,7 +5,6 @@ const { body, validationResult } = require("express-validator");
 const asyncHandler = require("express-async-handler");
 
 exports.users_list = asyncHandler(async (req, res, next) => {
-  console.log("sdf");
   const users = await User.find({});
 
   res.json(users);
@@ -53,6 +52,7 @@ exports.users_create_post = [
         email: req.body.email,
         password: hashedPassword,
         isAdmin: false,
+        isMember : false,
       });
 
       await user.save();
@@ -60,3 +60,16 @@ exports.users_create_post = [
     }
   }),
 ];
+
+exports.users_joinClub_post = asyncHandler(async (req ,res ) => {
+  if (req.body.secret === 'Secret') {
+    const user = await User.findByIdAndUpdate(req.user._id , {isMember : true})
+    await user.save()
+    console.log('all good')
+    res.redirect("/")
+  } 
+})
+
+exports.users_joinClub_get = asyncHandler(async (req ,res ) => {
+  res.render('joinClub.ejs')
+})

@@ -3,9 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/main.css">
     <title>Document</title>
   </head>
   <body>
-    <h1>Hello World</h1>
+
+    
+    <nav>
+      <h1>Members <span class="one">Only</span></h1>
+      <div class="buttons">
+        <% if (user !== undefined) {%>
+          <button class="addMessage"><a href="/user/newMessage">New Message</a></button>
+          <% if (!user.isMember) {%>
+            <button class="joinClubBtn"><a href="/user/joinClub">Join Club</a></button>
+            <%} %>
+
+          <form action="/user/logout" method="post">
+            <button type="submit" class="logoutBtn">Log out</button>
+          </form>
+        <%} else {%>
+        <button><a href="/user/login">Log In</a></button>
+        <button><a href="/user/register">Sign Up</a></button>
+        <% }%>
+
+      </div>      
+    </nav>
+
+
+
+    <% if (user !== undefined) {%>
+      <h1>Welcome <span class="two"><%= user.firstName %></span></h1>
+
+    <%}%>
+    <% if (messages !== undefined) {%>
+
+      <h1>All <span class="one">Messages</span></h1>
+      <div class="messages">
+        <% for (let i = 0 ; i < messages.length; i++) {%>
+          <div class="message">
+            <% if (user !== undefined && user.isMember === true) {%>
+              <h3><span class="two"><%= messages[i].author.firstName %></span></h3>
+                    <%}%>
+              <h2><%= messages[i].title%></h2>
+            <p><%= messages[i].content%><p>
+          </div>
+        <%}%>   
+      </div>
+   <%}%>
+
   </body>
 </html>
+ 
