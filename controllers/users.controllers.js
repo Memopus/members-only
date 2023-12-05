@@ -37,6 +37,10 @@ exports.users_create_post = [
     .escape()
     .matches(/\d/),
 
+  body('confirmPass' , "Password does not match ").custom((value , {req}) => {
+    return value === req.body.password;
+  }) ,
+
   body("email", "Must be an email ").isEmail(),
 
   asyncHandler(async (req, res, next) => {
